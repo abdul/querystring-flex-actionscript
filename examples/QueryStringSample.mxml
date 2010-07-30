@@ -1,0 +1,34 @@
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="initVars()">
+    <mx:Script><![CDATA[
+
+	import com.abdulqabiz.utils.QueryString;
+
+        // Declare bindable properties in Application scope.
+        [Bindable]
+        public var myName:String;
+        [Bindable]
+        public var myHometown:String;
+        
+	private var qs:QueryString;
+
+        // Assign values to new properties.
+        private function initVars():void {
+	   qs = new QueryString();
+            name_lbl.text = qs.parameters.myName;
+            homeTown_lbl.text = qs.parameters.myHomeTown;
+	   trace(qs.url);
+        }
+    ]]></mx:Script>
+    
+    <mx:VBox>
+    <mx:HBox>
+        <mx:Label text="Name: "/>
+        <mx:Label id="name_lbl"  fontWeight="bold"/>
+    </mx:HBox>
+    <mx:HBox>
+        <mx:Label text="Hometown: "/>
+        <mx:Label id="homeTown_lbl" fontWeight="bold"/>
+    </mx:HBox>
+    </mx:VBox>
+</mx:Application>
+
